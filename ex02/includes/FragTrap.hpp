@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:25:54 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/11/05 10:07:50 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/11/09 04:16:21 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,18 @@
 
 # include "ClapTrap.hpp"
 
-//Fragtrap herite de claptrap
-class FragTrap : public ClapTrap //public suffira
+class FragTrap : public ClapTrap 
 {
 public:
-	FragTrap( std::string name );//construcor name
-	FragTrap( FragTrap const & src );//copy
+	FragTrap();
+	FragTrap( std::string name );
+	FragTrap( FragTrap const & src );
 	~FragTrap();
 
 	FragTrap& operator=(FragTrap const &rhv);
 
 	void	highFivesGuys() const;
 	void	attack(std::string & target);
-	
-private:
-	FragTrap();
 };
 
 #endif

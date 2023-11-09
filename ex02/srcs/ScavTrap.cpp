@@ -6,11 +6,11 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:24:13 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/11/05 10:08:35 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/11/09 04:15:18 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#include "ScavTrap.hpp"
 
 /*******************************************************************************
  * 								Constructor Destructor
@@ -67,6 +67,15 @@ ScavTrap&	ScavTrap::operator=( ScavTrap const &rhv )
 
 void		ScavTrap::guardGate( void ) const
 {
+	if ( this->_energyPoints == 0 ) {
+		std::cout << "ScavTrap " << this->_name << " has no energy points left can't " << std::endl;
+		return ;
+	}
+	if (this->_hitPoints == 0)
+	{
+		std::cout << "ScavTrap " << this->_name << " can't be in guard state, cause he's dead" << std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << this->_name << " is now in gate keeper mode" << std::endl;
 	return ;
 }

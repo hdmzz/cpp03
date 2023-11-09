@@ -6,15 +6,15 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:25:46 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/11/05 10:18:56 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/11/09 04:26:33 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-/******************************************************************************
- * 							Constructor destructor 
-******************************************************************************/
+/*******************************************************************************
+ * 							Constructor destructor 								
+*******************************************************************************/
 FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "FragTrap default construcor called" << std::endl;
@@ -61,21 +61,21 @@ FragTrap& FragTrap::operator=(FragTrap const &rhv)//operateur d'assignation
 
 void	FragTrap::highFivesGuys() const
 {
-	if (this->_energyPoints == 0)
-		std::cout << this->_name << " can't do anything cause it got no energy points left" << std::endl;
-	if (this->_hitPoints == 0)
-		std::cout << this->_name << " can't do anything cause its dead" << std::endl;
-	std::cout << this->_name << " High Five" << std::endl;
+	if (this->_energyPoints <= 0)
+		std::cout << "FragTrap " << this->_name << " can't do anything cause it got no energy points left" << std::endl;
+	if (this->_hitPoints <= 0)
+		std::cout << "FragTrap " << this->_name << " can't do anything cause its dead" << std::endl;
+	std::cout << "FragTrap " << this->_name << " High Five" << std::endl;
 	return ;
 }
 
 void		FragTrap::attack(std::string & target)
 {
-	if ( this->_energyPoints == 0 ) {
+	if ( this->_energyPoints <= 0 ) {
 		std::cout << "FragTrap " << this->_name << " has no energy points left" << std::endl;
 		return ;
 	}
-	if (this->_hitPoints == 0)
+	if (this->_hitPoints <= 0)
 	{
 		std::cout << "FragTrap " << this->_name << " can't attack, cause he's dead" << std::endl;
 		return ;
